@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./app');
+const app = require('../app');
 
 describe('cats routes', () => {
     test('responds to GET / with a 200 on success', function(done) {
@@ -10,9 +10,9 @@ describe('cats routes', () => {
             .expect(200, done);
     });
 
-    test('retrieves a cat by id', (done) => {
+    test('retrieves a cat by name', (done) => {
         request(app)
-            .get('/cats/3')
+            .get('/cats/bob')
             .expect(200)
             .expect({ id: 3, name: 'Bob' }, done);
     });
